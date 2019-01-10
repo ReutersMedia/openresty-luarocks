@@ -40,7 +40,6 @@ RUN echo "==> Installing dependencies..." \
     --without-http_uwsgi_module \
     --without-http_scgi_module \
     -j${NPROC} \
-    
  && echo "==> Building OpenResty..." \
  && make -j${NPROC} install \
  && ln -sf $NGINX_PREFIX/sbin/nginx /usr/local/bin/nginx \
@@ -62,7 +61,6 @@ RUN echo "==> Installing dependencies..." \
  && apk del build-deps \
  && apk add libpcrecpp libpcre16 libpcre32 openssl libssl1.0 pcre libgcc libstdc++ git curl unzip \
  && rm -rf /var/cache/apk/* 
-
 
 # leave build tools installed, as some required for luarocks builds
 # to install e.g. lua-zlib.  git and curl
